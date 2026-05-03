@@ -37,7 +37,7 @@ class Category(models.Model):
         max_length=100,
         verbose_name="Title",
         unique=True,
-        help_text="Enter a catagory name (Electonic, Cables, etc.",
+        help_text="Enter a catagory name (Electonic, Cables, etc.)",
     )
 
     def __str__(self):
