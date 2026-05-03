@@ -12,7 +12,7 @@ class Product(models.Model):
         help_text="Enter a price for the product", decimal_places=2, max_digits=10
     )
     stock = models.PositiveIntegerField()
-    description = models.TextField(max_length=500)
+    description = models.TextField(max_length=1000)
     category = models.ForeignKey(
         "Category", on_delete=models.PROTECT, related_name="products"
     )
@@ -57,5 +57,5 @@ class Category(models.Model):
                 Lower("name"),
                 name="category_name_case_insensitive",
                 violation_error_message="Category already exists (case insensitive match)",
-            ),
+            )
         ]
