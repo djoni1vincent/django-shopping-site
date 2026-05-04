@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %} {% block content %}
+<h1>Online Shop</h1>
+<p>
+    Welcome to Online Shop, a website developed by
+    <em>denys</em>!
+</p>
+<h2>Dynamic content</h2>
+<p>The shop has the following record counts:</p>
+<ul>
+    <li><strong>Products:</strong> {{ num_products }}</li>
+
+    <li>
+        <strong>Categories:</strong>
+        | {% for category in categories %} {{ category.name }} |{% endfor %}
+    </li>
+</ul>
+{% endblock %}
