@@ -1,4 +1,7 @@
-{% extends "base_generic.html" %} {% block content %}
+{% extends "base_generic.html" %} {% block content %} {% block title %}
+<title>Online Shop - Home</title>
+{% endblock %}
+
 <h1>Online Shop</h1>
 <p>
     Welcome to Online Shop, a website developed by
@@ -12,6 +15,10 @@
     <li>
         <strong>Categories:</strong>
         | {% for category in categories %} {{ category.name }} |{% endfor %}
+    </li>
+    <li>
+        <strong>Brands:</strong>
+        | {% for brand in brands %} {{ brand.name }} | {% endfor %}
     </li>
 </ul>
 {% endblock %}
