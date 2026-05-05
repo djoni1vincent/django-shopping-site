@@ -17,6 +17,7 @@ class Product(models.Model):
     category = models.ForeignKey(
         "Category", on_delete=models.PROTECT, related_name="products"
     )
+    image = models.ImageField(upload_to="products/", null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
