@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import generic
 
 from .models import Brand, Category, Product
 
@@ -18,3 +19,13 @@ def index(request):
     }
 
     return render(request, "catalog/index.html", context=context)
+
+
+class ProductListView(generic.ListView):
+    model = Product
+    context_object_name = "product_list"
+
+
+class ProductDetailView(generic.DetailView):
+    model = Product
+    context_object_name = "product_detail"

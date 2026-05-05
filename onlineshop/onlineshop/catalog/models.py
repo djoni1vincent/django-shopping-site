@@ -31,6 +31,10 @@ class Product(models.Model):
         """String for reprasentating Model object"""
         return f"{self.name}"
 
+    def get_absolute_url(self):
+        """Returns the url to access particular product instance."""
+        return reverse("product-detail", args=[str(self.id)])
+
 
 class Category(models.Model):
     """Model for Category"""
