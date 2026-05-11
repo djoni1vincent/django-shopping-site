@@ -19,6 +19,12 @@ class Product(models.Model):
     )
     image = models.ImageField(upload_to="products/", null=True, blank=True)
 
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, "url"):
+            return self.image.url
+        return "/static/images/placeholder.png"
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
