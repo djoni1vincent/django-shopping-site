@@ -29,3 +29,13 @@ class ProductListView(generic.ListView):
 class ProductDetailView(generic.DetailView):
     model = Product
     context_object_name = "product_detail"
+
+
+class BrandListView(generic.ListView):
+    model = Brand
+    context_object_name = "brand_list"
+
+
+class BrandDetailView(generic.DetailView):
+    model = Brand
+    context_object_name = "brand_detail"
