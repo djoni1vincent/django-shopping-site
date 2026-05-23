@@ -1,3 +1,4 @@
+from django.contrib.sessions.models import Session
 from django.shortcuts import render
 from django.views import generic
 
@@ -12,10 +13,15 @@ def index(request):
     categories = Category.objects.all()
     brands = Brand.objects.all()
 
+    num_visits = request.session.get("num_visits", 0)
+    num_visits += 1
+    request.session["num_visits"] = num_visits
+
     context = {
         "num_products": num_products,
         "categories": categories,
         "brands": brands,
+        "num_visits": num_visits,
     }
 
     return render(request, "catalog/index.html", context=context)
@@ -23,6 +29,7 @@ def index(request):
 
 class ProductListView(generic.ListView):
     model = Product
+    paginate_by = 5
     context_object_name = "product_list"
 
 
