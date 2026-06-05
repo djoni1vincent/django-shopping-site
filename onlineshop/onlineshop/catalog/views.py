@@ -1,5 +1,6 @@
 from django.contrib.sessions.models import Session
 from django.shortcuts import render
+from django.template.context_processors import request
 from django.views import generic
 
 from .models import Brand, Category, Product
